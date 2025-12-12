@@ -579,6 +579,104 @@ Phase 3 (Continental):
 
 ---
 
+## Service Level Objectives (SLOs)
+
+### Platform-Wide SLOs
+
+| Category | Objective | Target | Error Budget |
+|----------|-----------|--------|--------------|
+| **Availability** | Platform uptime | 99.9% | 8.76 hrs/year |
+| **Latency - API** | p95 response time | < 200ms | 5% of requests |
+| **Latency - Matching** | Time to find driver | < 30s | 5% of requests |
+| **Throughput** | Concurrent users | 10,000 | N/A |
+| **Data Durability** | Zero data loss | 100% | 0% tolerance |
+
+### Service-Specific SLOs
+
+| Service | Availability | Latency (p95) | Error Rate |
+|---------|-------------|---------------|------------|
+| **Rides API** | 99.95% | 150ms | < 0.1% |
+| **Users API** | 99.95% | 100ms | < 0.1% |
+| **Payments API** | 99.99% | 200ms | < 0.01% |
+| **Communications API** | 99.9% | 500ms | < 0.5% |
+| **SignalR** | 99.9% | 50ms | < 0.1% |
+
+### External Dependency SLAs
+
+| Provider | Service | Committed SLA | Our Budget |
+|----------|---------|---------------|------------|
+| **Azure** | Container Apps | 99.95% | 4.38 hrs/year |
+| **Azure** | PostgreSQL | 99.99% | 52.6 min/year |
+| **Azure** | Redis Cache | 99.9% | 8.76 hrs/year |
+| **PayFast** | Payment Gateway | 99.9% | 8.76 hrs/year |
+| **Google Maps** | Maps API | 99.9% | 8.76 hrs/year |
+| **Africa's Talking** | SMS API | 99.5% | 43.8 hrs/year |
+
+### Business SLOs
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| **Ride Completion Rate** | > 95% | Completed / Requested |
+| **Driver Response Time** | < 30s median | Time from offer to accept |
+| **Payment Success Rate** | > 99.5% | Successful / Attempted |
+| **SMS Delivery Rate** | > 98% | Delivered / Sent |
+| **App Crash Rate** | < 0.1% | Crashes / Sessions |
+
+---
+
+## Capacity Planning
+
+### MVP Launch Capacity
+
+| Resource | Size | Capacity | Monthly Cost |
+|----------|------|----------|--------------|
+| **Rides API** | 2 replicas × 0.5 vCPU | 100 req/s | ~R800 |
+| **Users API** | 1 replica × 0.5 vCPU | 50 req/s | ~R400 |
+| **Payments API** | 1 replica × 0.5 vCPU | 20 req/s | ~R400 |
+| **PostgreSQL** | D2ds_v4 (2 vCPU) | 1000 conn | ~R2,000 |
+| **Redis Cache** | C1 (1GB) | 10K ops/s | ~R1,500 |
+| **SignalR** | 1 unit | 1K connections | ~R400 |
+| **Total** | | | **~R5,500/month** |
+
+### Scaling Thresholds
+
+| Milestone | Users | Rides/day | Infrastructure Change |
+|-----------|-------|-----------|----------------------|
+| **Launch** | 1,000 | 100 | MVP sizing |
+| **Growth** | 5,000 | 500 | +1 replica each service |
+| **Scale** | 20,000 | 2,000 | PostgreSQL read replica |
+| **Expand** | 50,000 | 5,000 | Premium Redis, 2nd region |
+
+### Load Testing Targets
+
+```
+Scenario: Peak Hour Simulation
+├── Duration: 1 hour
+├── Virtual Users: 500 concurrent
+├── Requests/second: 200
+├── New rides/minute: 50
+└── Expected: All SLOs met
+
+Scenario: Surge Event (e.g., stadium event)
+├── Duration: 30 minutes
+├── Virtual Users: 2,000 concurrent
+├── Requests/second: 1,000
+├── New rides/minute: 200
+└── Expected: Graceful degradation, queue rides
+```
+
+### Resource Limits
+
+| Resource | Soft Limit | Hard Limit | Action at Limit |
+|----------|------------|------------|-----------------|
+| **API Replicas** | 10 | 20 | Scale approval needed |
+| **PostgreSQL Size** | D4ds_v4 | D8ds_v4 | Sharding evaluation |
+| **Redis Memory** | 6 GB | 13 GB | Tier upgrade |
+| **SignalR Units** | 10 | 100 | Connection throttling |
+| **Blob Storage** | 100 GB | 1 TB | Archive policy |
+
+---
+
 ## Related Documents
 
 - [ADR Index](../README.md#architecture-decision-records-adrs) — All architectural decisions

@@ -1255,6 +1255,250 @@ This sequence diagram shows the code-level interaction for creating and completi
 
 ---
 
+## Level 3: Component Diagram - Admin Web App
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                  ADMIN WEB APP - COMPONENT DIAGRAM                                      │
+│                                       [React SPA - Azure Static Web Apps]                               │
+│                                                                                                         │
+│  ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                                        PAGE LAYER                                                 │  │
+│  │                                                                                                   │  │
+│  │   ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   │ DashboardPage   │  │  DriversPage    │  │   RidesPage     │  │  AnalyticsPage  │            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   │  /dashboard     │  │  /drivers       │  │  /rides         │  │  /analytics     │            │  │
+│  │   │  KPIs, alerts   │  │  List, approve  │  │  Monitor, flags │  │  Charts, export │            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   └────────┬────────┘  └────────┬────────┘  └────────┬────────┘  └────────┬────────┘            │  │
+│  │            │                    │                    │                    │                      │  │
+│  │   ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   │  SupportPage    │  │  PayoutsPage    │  │  SettingsPage   │  │  AuditPage      │            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   │  /support       │  │  /payouts       │  │  /settings      │  │  /audit         │            │  │
+│  │   │  Disputes,      │  │  Process,       │  │  Config, flags  │  │  Logs, actions  │            │  │
+│  │   │  refunds        │  │  reconcile      │  │                 │  │                 │            │  │
+│  │   │                 │  │                 │  │                 │  │                 │            │  │
+│  │   └────────┬────────┘  └────────┬────────┘  └────────┬────────┘  └────────┬────────┘            │  │
+│  │            │                    │                    │                    │                      │  │
+│  └────────────┼────────────────────┼────────────────────┼────────────────────┼──────────────────────┘  │
+│               │                    │                    │                    │                         │
+│               ▼                    ▼                    ▼                    ▼                         │
+│  ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                                     FEATURE LAYER                                                 │  │
+│  │                                                                                                   │  │
+│  │   ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │  DriverManagement   │     │   RideMonitoring    │     │  DisputeResolution  │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │  - ApplicationReview│     │  - LiveRideMap      │     │  - DisputeQueue     │               │  │
+│  │   │  - DocumentVerify   │     │  - RideTimeline     │     │  - RefundProcess    │               │  │
+│  │   │  - StatusUpdate     │     │  - AlertsPanel      │     │  - EscalationFlow   │               │  │
+│  │   │  - PerformanceView  │     │  - FlaggedRides     │     │  - ResolutionForm   │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   └─────────────────────┘     └─────────────────────┘     └─────────────────────┘               │  │
+│  │                                                                                                   │  │
+│  │   ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │  PayoutManagement   │     │   AnalyticsDashboard│     │   ConfigManagement  │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │  - PayoutQueue      │     │  - KPICards         │     │  - FeatureFlagPanel │               │  │
+│  │   │  - ReconcileView    │     │  - RevenueCharts    │     │  - PricingConfig    │               │  │
+│  │   │  - ManualAdjust     │     │  - DriverMetrics    │     │  - ZoneManagement   │               │  │
+│  │   │  - AuditTrail       │     │  - ExportReport     │     │  - SurgeConfig      │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   └─────────────────────┘     └─────────────────────┘     └─────────────────────┘               │  │
+│  │                                                                                                   │  │
+│  └──────────────────────────────────────────────────────────────────────────────────────────────────┘  │
+│                                                                                                         │
+│  ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                                     SERVICE LAYER                                                 │  │
+│  │                                                                                                   │  │
+│  │   ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │   ApiClient         │     │   AuthService       │     │   WebSocketService  │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   │  - Axios instance   │     │  - MSAL login       │     │  - SignalR connect  │               │  │
+│  │   │  - Request intercept│     │  - Token refresh    │     │  - Live updates     │               │  │
+│  │   │  - Error handling   │     │  - Role checking    │     │  - Alert subscribe  │               │  │
+│  │   │  - Retry logic      │     │                     │     │                     │               │  │
+│  │   │                     │     │                     │     │                     │               │  │
+│  │   └─────────────────────┘     └─────────────────────┘     └─────────────────────┘               │  │
+│  │                                                                                                   │  │
+│  └──────────────────────────────────────────────────────────────────────────────────────────────────┘  │
+│                                                                                                         │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Component Summary - Admin Web App
+
+| Component | Layer | Responsibility |
+|-----------|-------|----------------|
+| **DashboardPage** | Page | KPIs, real-time alerts, overview |
+| **DriversPage** | Page | Driver applications, verification, management |
+| **RidesPage** | Page | Live ride monitoring, flagged rides |
+| **AnalyticsPage** | Page | Business metrics, charts, exports |
+| **SupportPage** | Page | Dispute resolution, refunds, escalations |
+| **PayoutsPage** | Page | Driver payouts, reconciliation |
+| **DriverManagement** | Feature | Application review, document verification |
+| **RideMonitoring** | Feature | Live map, ride timeline, alerts |
+| **ApiClient** | Service | HTTP client with auth, retry, error handling |
+| **AuthService** | Service | MSAL authentication, role-based access |
+| **WebSocketService** | Service | SignalR for live updates |
+
+---
+
+## Level 4: Error Handling Sequence Diagram
+
+This sequence diagram shows error paths and fallback behavior in the system.
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                           SEQUENCE DIAGRAM: ERROR HANDLING FLOWS                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════ SCENARIO 1: PAYMENT FAILURE ═══════════════════════════════════════
+
+┌───────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐
+│ Rider │   │  PWA    │   │ Payments│   │ PayFast │   │  Comms  │   │  Sentry │
+│       │   │  App    │   │  API    │   │ Gateway │   │  API    │   │         │
+└───┬───┘   └────┬────┘   └────┬────┘   └────┬────┘   └────┬────┘   └────┬────┘
+    │            │             │             │             │             │
+    │ 1. Confirm │             │             │             │             │
+    │    ride    │             │             │             │             │
+    │───────────▶│             │             │             │             │
+    │            │             │             │             │             │
+    │            │ 2. Process  │             │             │             │
+    │            │    payment  │             │             │             │
+    │            │────────────▶│             │             │             │
+    │            │             │             │             │             │
+    │            │             │ 3. Initiate │             │             │
+    │            │             │    charge   │             │             │
+    │            │             │────────────▶│             │             │
+    │            │             │             │             │             │
+    │            │             │ 4. DECLINED │             │             │
+    │            │             │    (insufficient funds)   │             │
+    │            │             │◀────────────│             │             │
+    │            │             │             │             │             │
+    │            │             │ 5. Log error│             │             │
+    │            │             │─────────────────────────────────────────▶│
+    │            │             │             │             │             │
+    │            │             │ 6. Retry 3x │             │             │
+    │            │             │────┐        │             │             │
+    │            │             │◀───┘ failed │             │             │
+    │            │             │             │             │             │
+    │            │             │ 7. Send     │             │             │
+    │            │             │    alert    │             │             │
+    │            │             │────────────────────────────▶│             │
+    │            │             │             │             │             │
+    │            │ 8. Error    │             │             │             │
+    │◀───────────│◀────────────│             │             │             │
+    │            │             │             │             │             │
+    │ "Update    │             │             │             │             │
+    │  payment"  │             │             │             │             │
+
+
+═══════════════════════════════════ SCENARIO 2: NO DRIVERS ════════════════════════════════════════════
+
+┌───────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐
+│ Rider │   │  PWA    │   │ Rides   │   │Matching │   │  Redis  │
+└───┬───┘   └────┬────┘   └────┬────┘   └────┬────┘   └────┬────┘
+    │            │             │             │             │
+    │ 1. Request │             │             │             │
+    │    ride    │             │             │             │
+    │───────────▶│             │             │             │
+    │            │             │             │             │
+    │            │ 2. POST     │             │             │
+    │            │    /rides   │             │             │
+    │            │────────────▶│             │             │
+    │            │             │             │             │
+    │            │             │ 3. Find     │             │
+    │            │             │    driver   │             │
+    │            │             │────────────▶│             │
+    │            │             │             │             │
+    │            │             │             │ 4. GEORADIUS│
+    │            │             │             │    (empty)  │
+    │            │             │             │────────────▶│
+    │            │             │             │◀────────────│
+    │            │             │             │             │
+    │            │             │             │ 5. Expand   │
+    │            │             │             │    radius   │
+    │            │             │             │────────────▶│
+    │            │             │             │◀──── empty  │
+    │            │             │             │             │
+    │            │             │ 6. Queue    │             │
+    │            │             │    ride     │             │
+    │            │             │◀────────────│             │
+    │            │             │             │             │
+    │            │ 7. "Searching for driver" │             │
+    │◀───────────│◀────────────│             │             │
+    │            │             │             │             │
+    │            │             │ 8. Timeout  │             │
+    │            │             │    (5 min)  │             │
+    │            │             │────┐        │             │
+    │            │             │◀───┘        │             │
+    │            │             │             │             │
+    │◀───────────│ 9. "No drivers - try later"            │
+    │            │             │             │             │
+
+
+═══════════════════════════════════ SCENARIO 3: API FALLBACK ══════════════════════════════════════════
+
+┌───────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐
+│ Rider │   │  PWA    │   │ Rides   │   │ Google  │   │  Azure  │
+│       │   │  App    │   │  API    │   │  Maps   │   │  Maps   │
+└───┬───┘   └────┬────┘   └────┬────┘   └────┬────┘   └────┬────┘
+    │            │             │             │             │
+    │ 1. Get fare│             │             │             │
+    │    estimate│             │             │             │
+    │───────────▶│             │             │             │
+    │            │             │             │             │
+    │            │ 2. POST     │             │             │
+    │            │    /estimate│             │             │
+    │            │────────────▶│             │             │
+    │            │             │             │             │
+    │            │             │ 3. Get route│             │
+    │            │             │────────────▶│             │
+    │            │             │             │             │
+    │            │             │ 4. 503      │             │
+    │            │             │    UNAVAIL  │             │
+    │            │             │◀────────────│             │
+    │            │             │             │             │
+    │            │             │ 5. Circuit  │             │
+    │            │             │    breaker  │             │
+    │            │             │────┐ open   │             │
+    │            │             │◀───┘        │             │
+    │            │             │             │             │
+    │            │             │ 6. FALLBACK:│             │
+    │            │             │    Azure    │             │
+    │            │             │─────────────────────────▶│
+    │            │             │             │             │
+    │            │             │ 7. Route OK │             │
+    │            │             │◀─────────────────────────│
+    │            │             │             │             │
+    │            │ 8. Estimate │             │             │
+    │◀───────────│◀────────────│             │             │
+    │            │             │             │             │
+    │ "~R85      │             │             │             │
+    │  (approx)" │             │             │             │
+```
+
+### Error Handling Patterns
+
+| Error Type | Detection | Response | Fallback |
+|------------|-----------|----------|----------|
+| **Payment Declined** | PayFast ITN | Retry 3x, notify user | Offer alternative payment |
+| **No Drivers** | Empty geo query | Queue 5 min, expand radius | High demand message |
+| **API Timeout** | HTTP timeout | Circuit breaker | Azure Maps fallback |
+| **Database Error** | Connection exception | Retry with backoff | Cached data |
+| **SMS Fail** | AT callback | Retry 2x | Push notification |
+| **SignalR Disconnect** | Connection lost | Auto-reconnect | Long-poll |
+
+---
+
 ## Related Documents
 
 - [Architecture Overview](architecture.md) — High-level architecture description
