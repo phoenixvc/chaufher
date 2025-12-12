@@ -22,8 +22,8 @@ ChaufHER is a Progressive Web App ride-hail platform designed for women, providi
 
 The following are the primary business objectives for ChaufHER's initial launch phase.
 
-* Achieve over 1,000 scheduled rides within the first three months post-launch, as measured by completed bookings in the platform database.
-* Onboard at least 100 active drivers (drivers who complete at least one ride) within the first quarter.
+* Achieve over 100 scheduled rides within the first three months post-launch, as measured by completed bookings in the platform database.
+* Onboard at least 25 active drivers (drivers who complete at least one ride) within the first quarter.
 * Maintain a customer satisfaction (CSAT) score of 4.8 out of 5 or higher, as measured by post-ride survey responses.
 * Reach operational break-even (revenue covers all recurring operational costs) by the end of the sixth month post-launch.
 * Ensure 99.5% uptime for the platform, measured on a monthly basis.
@@ -42,7 +42,7 @@ These objectives represent the core needs and desired outcomes for riders, drive
 These objectives are not part of the MVP scope.
 
 * On-demand, unscheduled ride requests are not supported at launch; the initial focus is exclusively on scheduled rides.
-* Expansion to non-women drivers or broader markets at MVP stage.
+* Expansion to non-women drivers or broader markets.
 * Integration with third-party loyalty or reward programs will not be included in the MVP.
 
 ---
@@ -128,7 +128,6 @@ Full user personas are available in the [user_personas.md](user_personas.md) doc
 | | **Trip Dashboard**: List of upcoming rides. |
 | | **Navigation Integration**: Directions to pickup/drop-off. |
 | **Nice-to-Have** | **Performance Stats**: Earnings and reviews. |
-| | **Instant Payout**: Withdraw earnings instantly. |
 
 ### Admin Dashboard
 
@@ -174,10 +173,6 @@ Full user personas are available in the [user_personas.md](user_personas.md) doc
 * Location fields with auto-complete for pick-up/drop-off.
 * Date and time selection using calendar widget.
 * Validation: no past-dates, address auto-complete, resolve missing info.
-
-**Review and Select Driver: Driver Match Preview**
-* Review available drivers with profiles, ratings.
-* Choose preferred driver if options exist, otherwise platform auto-selects best match.
 
 **Confirmation and Payment: Fare Review and Payment Process**
 * Fare estimate breakdown shown.
