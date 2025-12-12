@@ -606,6 +606,10 @@ For questions, issues, or support:
 - [Customer Journey Map](docs/customer_journey_map.md) — End-to-end experience across all touchpoints
 - [Design Guardrails](docs/design_guardrails.md) — Non-negotiable UX principles
 
+### Technical Architecture
+
+- [Architecture Overview](docs/architecture.md) — High-level system architecture, data flows, component diagrams
+
 ### Architecture Decision Records (ADRs)
 
 All architectural decisions are documented with weighted evaluation matrices per [ADR-000](adr/000-adr-specification.md).
@@ -635,6 +639,10 @@ All architectural decisions are documented with weighted evaluation matrices per
 | [ADR-020](adr/020-error-tracking.md) | Error Tracking (Sentry) | Proposed | Operations |
 | [ADR-021](adr/021-feature-flags.md) | Feature Flags (Azure App Config) | Proposed | DevOps |
 | [ADR-022](adr/022-analytics-bi.md) | Analytics & BI (Power BI) | Proposed | Analytics |
+| [ADR-023](adr/023-networking-api-gateway.md) | Networking & API Gateway (Azure Front Door) | Proposed | Infrastructure |
+| [ADR-024](adr/024-security-architecture.md) | Security Architecture (Defense in Depth) | Proposed | Security |
+| [ADR-025](adr/025-disaster-recovery-ha.md) | Disaster Recovery & HA (Zone Redundancy) | Proposed | Infrastructure |
+| [ADR-026](adr/026-driver-matching-algorithm.md) | Driver Matching Algorithm | Proposed | Backend |
 
 ### Repository Documentation
 
