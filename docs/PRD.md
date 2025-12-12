@@ -1,3 +1,17 @@
+Notes:
+Similar to ADR / other comments:
+1. This is heavier than client PRD.
+2. MVP requirement is less real time.
+3. Note payment processing as per client PRD is as follows -
+   Charge occurs when driver accepts the trip 
+   ChaufHER Reduced PRD 8Dec25
+   3DS required + CVV required each transaction 
+   ChaufHER Reduced PRD 8Dec25
+   Refunds are fully manual by admin 
+   ChaufHER Reduced PRD 8Dec25
+   Provider options are Peach / Paystack / Yoco / Ozow
+4. Add minimum age 16 unaccompanied
+   
 # ChaufHER – Scheduled Ride-Hail Platform (PWA) – Product Requirements Document
 
 | Field | Value |
