@@ -60,6 +60,7 @@ A web application using modern browser APIs (Service Workers, Web Push, Web App 
 - Limited access to some device APIs (Bluetooth, NFC, advanced sensors)
 - Performance ceiling for complex animations/graphics
 - Browser-dependent feature support
+- Not reliable for true "real-time background tracking" (but accurate when app is in foreground).
 
 ### Option B: Flutter (Cross-Platform Native)
 
@@ -140,6 +141,7 @@ Web technologies wrapped in a native container with access to native APIs via pl
 
 Each criterion is weighted based on ChaufHER's specific priorities (MVP speed, small team, cross-platform reach). Scores are 1-5 (5 = best).
 
+NB Change -> time to market weight to 10%, development cost 25%
 | Criterion | Weight | PWA | Flutter | React Native | Native | Capacitor |
 |-----------|--------|-----|---------|--------------|--------|-----------|
 | **Time to Market** | 20% | 5 | 3 | 3 | 1 | 4 |
@@ -178,6 +180,8 @@ Each criterion is weighted based on ChaufHER's specific priorities (MVP speed, s
 ## Analysis
 
 ### Why PWA Wins for ChaufHER MVP
+
+Change - speed is important but cost is critical
 
 1. **Speed is Critical**: With a 3-6 week MVP timeline and 1 engineer, PWA's simplicity and immediate deployability are decisive advantages.
 
