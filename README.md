@@ -490,7 +490,7 @@ For questions, issues, or support:
 
 ### Prerequisites
 
-- Git, Node.js 16+, .NET 9 SDK, Flutter 3.0+
+- Git, Node.js 18+, .NET 9 SDK
 - Docker (optional for local services)
 - Azure CLI (for Key Vault access)
 
@@ -624,6 +624,8 @@ All architectural decisions are documented with weighted evaluation matrices per
 | [ADR-009](adr/009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Accepted | Backend |
 | [ADR-010](adr/010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Accepted | Infrastructure |
 | [ADR-011](adr/011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Accepted | DevOps |
+| [ADR-012](adr/012-project-management.md) | Project Management (Linear) | Accepted | Process |
+| [ADR-013](adr/013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Accepted | Operations |
 
 ### Repository Documentation
 
@@ -636,30 +638,30 @@ Technical documentation for each repository in the ChaufHER platform:
 | **chaufher-web** | [docs/web/README.md](docs/web/README.md) | React admin portal, design variants, operations |
 | **chaufher-infra** | [docs/infra/README.md](docs/infra/README.md) | Azure infrastructure, Bicep modules, runbooks |
 
-### Quick Links
+### Planned Documentation
 
-- [Onboarding Checklist](docs/ONBOARDING.md)
-- [Security Policy](docs/SECURITY.md)
-- [CI/CD Pipeline Reference](docs/CICD.md)
-- [Incident & DR Runbooks](runbooks/)
-- [Contribution Guidelines](CONTRIBUTING.md)
-- [Architecture Diagrams](docs/architecture/)
+> **Note**: The following documents are planned for future development phases:
 
-### Policies & Standards
+**Quick Links** (Planned)
+- Onboarding Checklist
+- Security Policy
+- CI/CD Pipeline Reference
+- Contribution Guidelines
+- Architecture Diagrams
 
-- [Secrets Management](docs/SECRETS.md)
-- [Code Review Standards](docs/CODE_REVIEW.md)
-- [Deployment Policy](docs/DEPLOYMENT.md)
-- [Incident Response](docs/INCIDENT_RESPONSE.md)
-- [Compliance Requirements](docs/COMPLIANCE.md)
+**Policies & Standards** (Planned)
+- Secrets Management
+- Code Review Standards
+- Deployment Policy
+- Incident Response
+- Compliance Requirements
 
-### Runbooks
-
-- [Deployment Runbook](runbooks/DEPLOYMENT.md)
-- [Rollback Procedures](runbooks/ROLLBACK.md)
-- [Incident Response](runbooks/INCIDENT_RESPONSE.md)
-- [DR Drill Procedures](runbooks/DR_DRILL.md)
-- [Secrets Rotation](runbooks/SECRETS_ROTATION.md)
+**Runbooks** (Planned)
+- Deployment Runbook
+- Rollback Procedures
+- Incident Response
+- DR Drill Procedures
+- Secrets Rotation
 
 ---
 

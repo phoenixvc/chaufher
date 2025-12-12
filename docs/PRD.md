@@ -1,5 +1,14 @@
 # ChaufHER – Scheduled Ride-Hail Platform (PWA) – Product Requirements Document
 
+| Field | Value |
+|-------|-------|
+| **Status** | Awaiting Approval |
+| **Owner** | Eben |
+| **Version** | 1.0 |
+| **Last Updated** | 2025-01-15 |
+
+---
+
 ## Executive Summary
 
 ChaufHER is a Progressive Web App ride-hail platform designed for women, providing scheduled rides with vetted female drivers. Key features include advanced scheduling, transparent pricing, and ride status notifications. The platform prioritizes trust, empowerment, and ease of use, addressing the need for a specialist ride-hail service for women who often feel underserved or unsafe using mainstream options.
