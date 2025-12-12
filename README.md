@@ -626,6 +626,15 @@ All architectural decisions are documented with weighted evaluation matrices per
 | [ADR-011](adr/011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Proposed | DevOps |
 | [ADR-012](adr/012-project-management.md) | Project Management (Linear) | Proposed | Process |
 | [ADR-013](adr/013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Proposed | Operations |
+| [ADR-014](adr/014-payment-gateway.md) | Payment Gateway (PayFast) | Proposed | Payments |
+| [ADR-015](adr/015-sms-notifications.md) | SMS & Notifications (Africa's Talking) | Proposed | Communications |
+| [ADR-016](adr/016-maps-geolocation.md) | Maps & Geolocation (Google Maps) | Proposed | Integration |
+| [ADR-017](adr/017-background-jobs.md) | Background Jobs (Hangfire) | Proposed | Backend |
+| [ADR-018](adr/018-email-provider.md) | Email Provider (SendGrid) | Proposed | Communications |
+| [ADR-019](adr/019-file-storage.md) | File Storage (Azure Blob) | Proposed | Infrastructure |
+| [ADR-020](adr/020-error-tracking.md) | Error Tracking (Sentry) | Proposed | Operations |
+| [ADR-021](adr/021-feature-flags.md) | Feature Flags (Azure App Config) | Proposed | DevOps |
+| [ADR-022](adr/022-analytics-bi.md) | Analytics & BI (Power BI) | Proposed | Analytics |
 
 ### Repository Documentation
 
