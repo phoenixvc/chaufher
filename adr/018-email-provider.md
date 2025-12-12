@@ -1,6 +1,6 @@
 # ADR-018: Email Provider – SendGrid vs Alternatives
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

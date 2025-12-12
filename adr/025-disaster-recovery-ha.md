@@ -1,6 +1,6 @@
 # ADR-025: Disaster Recovery & High Availability
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

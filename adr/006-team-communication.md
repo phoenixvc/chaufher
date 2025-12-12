@@ -1,6 +1,6 @@
 # ADR-006: Team Communication Platform – Slack vs Microsoft Teams
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

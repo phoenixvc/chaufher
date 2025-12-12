@@ -1,6 +1,6 @@
 # ADR-013: Monitoring & Observability – Azure Monitor + Application Insights
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

@@ -1,6 +1,6 @@
 # ADR-021: Feature Flags – Azure App Configuration
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

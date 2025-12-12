@@ -1,6 +1,6 @@
 # ADR-012: Project Management & Dashboard – Linear vs Alternatives
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

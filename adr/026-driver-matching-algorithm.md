@@ -1,6 +1,6 @@
 # ADR-026: Driver Matching Algorithm
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
@@ -148,21 +148,21 @@ ML model predicts best match based on historical data.
 
 | Option | Calculation | **Total Score** |
 |--------|-------------|-----------------|
-| **Multi-Factor** | (4×.20)+(5×.15)+(5×.15)+(4×.12)+(4×.10)+(3×.10)+(5×.08)+(5×.05)+(4×.03)+(4×.02) | **4.29** |
-| **Nearest** | (5×.20)+(2×.15)+(2×.15)+(3×.12)+(5×.10)+(5×.10)+(2×.08)+(2×.05)+(5×.03)+(5×.02) | **3.43** |
-| **Zone-Based** | (3×.20)+(4×.15)+(3×.15)+(3×.12)+(4×.10)+(4×.10)+(2×.08)+(3×.05)+(4×.03)+(4×.02) | **3.37** |
-| **ML** | (4×.20)+(4×.15)+(5×.15)+(5×.12)+(3×.10)+(1×.10)+(5×.08)+(4×.05)+(2×.03)+(1×.02) | **3.69** |
-| **Auction** | (3×.20)+(3×.15)+(4×.15)+(4×.12)+(3×.10)+(2×.10)+(3×.08)+(3×.05)+(3×.03)+(3×.02) | **3.18** |
+| **Multi-Factor** | (4×.20)+(5×.15)+(5×.15)+(4×.12)+(4×.10)+(3×.10)+(5×.08)+(5×.05)+(4×.03)+(4×.02) | **4.33** |
+| **Nearest** | (5×.20)+(2×.15)+(2×.15)+(3×.12)+(5×.10)+(5×.10)+(2×.08)+(2×.05)+(5×.03)+(5×.02) | **3.47** |
+| **Zone-Based** | (3×.20)+(4×.15)+(3×.15)+(3×.12)+(4×.10)+(4×.10)+(2×.08)+(3×.05)+(4×.03)+(4×.02) | **3.32** |
+| **ML** | (4×.20)+(4×.15)+(5×.15)+(5×.12)+(3×.10)+(1×.10)+(5×.08)+(4×.05)+(2×.03)+(1×.02) | **3.83** |
+| **Auction** | (3×.20)+(3×.15)+(4×.15)+(4×.12)+(3×.10)+(2×.10)+(3×.08)+(3×.05)+(3×.03)+(3×.02) | **3.17** |
 
 ### Score Summary
 
 | Rank | Option | Score |
 |------|--------|-------|
-| 1 | **Weighted Multi-Factor Scoring** | 4.29 |
-| 2 | Machine Learning | 3.69 |
-| 3 | Nearest Driver | 3.43 |
-| 4 | Zone-Based | 3.37 |
-| 5 | Auction/Bidding | 3.18 |
+| 1 | **Weighted Multi-Factor Scoring** | 4.33 |
+| 2 | Machine Learning | 3.83 |
+| 3 | Nearest Driver | 3.47 |
+| 4 | Zone-Based | 3.32 |
+| 5 | Auction/Bidding | 3.17 |
 
 ---
 
@@ -649,6 +649,7 @@ if (await _featureManager.IsEnabledAsync("MatchingExperiment_HighFairness"))
 - [ADR-003: Real-Time Communication (SignalR)](003-realtime-signalr.md)
 - [ADR-004: Caching Strategy (Redis)](004-caching-redis.md)
 - [ADR-016: Maps & Geolocation](016-maps-geolocation.md)
+- [ADR-027: Driver Scheduling Algorithm](027-driver-scheduling-algorithm.md)
 - [Architecture Overview](../docs/architecture.md)
 
 ---

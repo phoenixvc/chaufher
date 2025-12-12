@@ -1,6 +1,6 @@
 # ChaufHER CODER Evaluations
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
@@ -50,9 +50,34 @@ This document applies the **CODER** evaluation framework to all architectural de
 
 | Risk Level | Count | ADRs |
 |------------|-------|------|
-| 🟢 Low | 18 | Most infrastructure and process decisions |
-| 🟡 Medium | 8 | External integrations, algorithms |
+| 🟢 Low | 21 | Most infrastructure, backend, and process decisions |
+| 🟡 Medium | 9 | Client technology, external integrations, algorithms |
 | 🔴 High | 2 | Payment gateway, security architecture |
+
+---
+
+## Client Decisions
+
+### ADR-001: Client Technology (PWA)
+
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| **Cost** | 5 | No app store fees. Single codebase. Web hosting only. |
+| **Operational** | 5 | Web deployment. No app store approval process. Instant updates. |
+| **Developer** | 4 | Modern web stack. TypeScript, React. Smaller team needed than native. |
+| **Extensibility** | 4 | PWA evolving rapidly. Can add native features via Capacitor if needed. |
+| **Risk** | 3 | iOS PWA limitations (no push via Safari until iOS 16.4+). Browser dependency. |
+| **CODER Score** | **4.2** | |
+
+**Key Risks:**
+- 🟡 iOS PWA feature limitations (improving but not parity)
+- 🟡 Browser-dependent user experience
+- 🟢 No app store gatekeeping risk
+
+**Mitigations:**
+- Target iOS 16.4+ for push notifications
+- Capacitor wrapper available for native features if needed
+- Progressive enhancement for offline support
 
 ---
 
@@ -446,6 +471,13 @@ This document applies the **CODER** evaluation framework to all architectural de
 
 ## CODER Summary by Category
 
+### Client
+
+| ADR | Decision | CODER | Risk Level |
+|-----|----------|-------|------------|
+| ADR-001 | PWA | 4.2 | 🟡 Medium |
+| ADR-029 | Zustand | 4.4 | 🟢 Low |
+
 ### Infrastructure
 
 | ADR | Decision | CODER | Risk Level |
@@ -455,6 +487,7 @@ This document applies the **CODER** evaluation framework to all architectural de
 | ADR-025 | Zone Redundancy | 4.0 | 🟡 Medium |
 | ADR-019 | Azure Blob | 4.4 | 🟢 Low |
 | ADR-010 | Bicep | 4.0 | 🟢 Low |
+| ADR-028 | Azure Container Apps | 4.4 | 🟢 Low |
 
 ### Backend
 
@@ -467,6 +500,7 @@ This document applies the **CODER** evaluation framework to all architectural de
 | ADR-017 | Hangfire | 4.4 | 🟢 Low |
 | ADR-026 | Matching Algorithm | 4.0 | 🟡 Medium |
 | ADR-027 | Scheduling Algorithm | 3.8 | 🟡 Medium |
+| ADR-030 | URL Path Versioning | 4.6 | 🟢 Low |
 
 ### Security
 
