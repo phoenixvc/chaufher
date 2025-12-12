@@ -1,5 +1,15 @@
 # ChaufHER Design Guardrails
 
+| Field | Value |
+|-------|-------|
+| **Status** | Awaiting Approval |
+| **Owner** | Jurie |
+| **Reviewer** | Eben |
+| **Version** | 1.0 |
+| **Last Updated** | 2025-12-12 |
+
+---
+
 ## Purpose & Scope
 
 These guardrails define the non-negotiable UX principles for ChaufHER. They apply to all rider, driver, and admin interfaces for the MVP and subsequent phases. Any new flow, screen, or feature must be reviewed against these principles before sign-off.

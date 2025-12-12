@@ -1,5 +1,15 @@
 # ChaufHER Customer Journey Map
 
+| Field | Value |
+|-------|-------|
+| **Status** | Awaiting Approval |
+| **Owner** | Jurie |
+| **Reviewer** | Eben |
+| **Version** | 1.0 |
+| **Last Updated** | 2025-12-12 |
+
+---
+
 This document maps the end-to-end customer experience across all user types: riders, drivers, administrators, and guardians.
 
 ---

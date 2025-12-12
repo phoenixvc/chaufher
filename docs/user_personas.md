@@ -1,5 +1,15 @@
 # ChaufHER User Personas
 
+| Field | Value |
+|-------|-------|
+| **Status** | Awaiting Approval |
+| **Owner** | Jurie |
+| **Reviewer** | Eben |
+| **Version** | 1.0 |
+| **Last Updated** | 2025-12-12 |
+
+---
+
 This document defines the primary user personas for ChaufHER, representing the key user types the platform serves: Riders, Drivers, and Administrators.
 
 ---
