@@ -1,3 +1,8 @@
+NB NB: 
+1. this is overscoped against the client PRD. We can aim for this (largely) and outdeliver, but would try to be more realistic.
+2. performance / persistence requirements is significantly less. they are only serving about 10 trips a day at present. so even at 100x that its still very low.
+3. monthly cost consideration is cardinal. i would say total budgeted not more than 4k, if possible, but can discuss.
+
 # ChaufHER Infrastructure Technical Design
 
 <!-- CI/CD Status Badges -->
