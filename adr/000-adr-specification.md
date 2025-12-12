@@ -1,6 +1,6 @@
 # ADR-000: Architecture Decision Record Specification
 
-**Status:** Proposed
+**Status:** Approved
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
@@ -297,7 +297,7 @@ Do NOT write an ADR for:
 | Single repo | 1 team member |
 | Multi-repo | Engineering Lead + affected team leads |
 | Security/Compliance | Security Lead + Engineering Lead |
-| Cost >$1000/month | Engineering Lead + Business stakeholder |
+| Cost > R5000/month | Engineering Lead + Business stakeholder |
 
 ### Storage
 
