@@ -6,6 +6,10 @@ The unified entry point for development, operations, and governance across the C
 
 ## Table of Contents
 
+### Product Documentation
+- [Product Requirements (PRD)](#product-requirements)
+- [Design Guardrails](#design-guardrails)
+
 ### Business & Product
 - [Product Overview](#product-overview)
 - [Purpose & Value](#purpose--value)
@@ -31,6 +35,35 @@ The unified entry point for development, operations, and governance across the C
 ### Reference
 - [Documentation Index](#documentation-index)
 - [Related Repositories](#related-repositories)
+
+---
+
+# Product Documentation
+
+## Product Requirements
+
+The **[Product Requirements Document (PRD)](docs/PRD.md)** defines ChaufHER's vision, goals, and scope:
+
+- **Mission**: A ride-hail platform designed for women, providing scheduled rides with vetted female drivers
+- **MVP Focus**: Scheduled rides only (on-demand is future scope)
+- **Core Features**: Ride scheduling, driver profiles, status notifications, secure payments
+- **Target Metrics**: 1,000+ rides in 3 months, 100+ active drivers, 4.8+ CSAT score
+
+> **Read the full PRD**: [docs/PRD.md](docs/PRD.md)
+
+## Design Guardrails
+
+The **[Design Guardrails](docs/DESIGN_GUARDRAILS.md)** define non-negotiable UX principles:
+
+| Guardrail | Principle |
+|-----------|-----------|
+| **Safety First** | Safety signals must be visible and concrete, not implied |
+| **Status Clarity** | Users must always know "what is happening now" and "what happens next" |
+| **Predictability** | Simple, predictable rules beat many configuration options |
+| **Human Fallback** | Clear paths to human help in all critical states |
+| **Repetition-Ready** | Flows optimized for recurring patterns (school runs, shifts) |
+
+> **Read the full guardrails**: [docs/DESIGN_GUARDRAILS.md](docs/DESIGN_GUARDRAILS.md)
 
 ---
 
@@ -173,9 +206,9 @@ ChaufHER's source is structured into four primary repositories, orchestrated by 
 ```
 ChaufHER/
 ├── workspace/        ← This repo: shared docs, CI/CD orchestration
-├── app/              ← Mobile app source (Flutter)
+├── app/              ← Client application (PWA)
 ├── api/              ← Backend services (.NET 9)
-├── web/              ← Web frontend (React)
+├── web/              ← Admin portal (React)
 └── infra/            ← Infrastructure (Bicep/Terraform)
 ```
 
@@ -184,10 +217,12 @@ ChaufHER/
 | Repository | Purpose | Technology | Orchestration |
 |------------|---------|------------|---------------|
 | **workspace** (this repo) | Shared docs, CI/CD, policies | Markdown, YAML | Coordinates all repos |
-| **app** | Mobile client for riders/drivers | Flutter/Dart | Triggered by workspace |
+| **app** | Client PWA for riders/drivers | Progressive Web App | Triggered by workspace |
 | **api** | Backend services, business logic | .NET 9, PostgreSQL | Triggered by workspace |
 | **web** | Admin portal, operations dashboard | React/TypeScript | Triggered by workspace |
 | **infra** | Infrastructure as code, provisioning | Bicep/Terraform | Triggered by workspace |
+
+> **Why PWA?** See [ADR-001: Client Technology Selection](adr/001-client-technology-flutter-vs-pwa.md) for the weighted evaluation of Flutter, React Native, Native, and PWA approaches.
 
 ### Orchestration Flow
 
@@ -540,6 +575,15 @@ For questions, issues, or support:
 
 ## Documentation Index
 
+### Product & Design
+
+- [Product Requirements Document (PRD)](docs/PRD.md) — Vision, goals, user stories, functional requirements
+- [Design Guardrails](docs/DESIGN_GUARDRAILS.md) — Non-negotiable UX principles
+
+### Architecture Decision Records (ADRs)
+
+- [ADR-001: Client Technology (Flutter vs PWA)](adr/001-client-technology-flutter-vs-pwa.md) — Weighted evaluation of client technology options
+
 ### Quick Links
 
 - [Onboarding Checklist](docs/ONBOARDING.md)
@@ -548,7 +592,6 @@ For questions, issues, or support:
 - [Incident & DR Runbooks](runbooks/)
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Architecture Diagrams](docs/architecture/)
-- [Architecture Decision Records](adr/)
 
 ### Policies & Standards
 
@@ -573,7 +616,7 @@ For questions, issues, or support:
 | Repository | Purpose | Link |
 |------------|---------|------|
 | **chaufher-workspace** (this repo) | Platform coordination hub | [GitHub](https://github.com/phoenixvc/chaufher-workspace) |
-| **chaufher-app** | Flutter mobile client | [GitHub](https://github.com/phoenixvc/chaufher-app) |
+| **chaufher-app** | PWA client for riders/drivers | [GitHub](https://github.com/phoenixvc/chaufher-app) |
 | **chaufher-api** | .NET backend services | [GitHub](https://github.com/phoenixvc/chaufher-api) |
 | **chaufher-web** | React admin portal | [GitHub](https://github.com/phoenixvc/chaufher-web) |
 | **chaufher-infra** | Azure IaC, CI/CD | [GitHub](https://github.com/phoenixvc/chaufher-infra) |
