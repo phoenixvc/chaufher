@@ -609,6 +609,7 @@ For questions, issues, or support:
 ### Technical Architecture
 
 - [Architecture Overview](docs/architecture.md) — High-level system architecture, data flows, component diagrams
+- [C4 Diagrams](docs/c4-diagrams.md) — Context, Container, Component, and Code level architecture diagrams
 
 ### Architecture Decision Records (ADRs)
 
@@ -643,6 +644,7 @@ All architectural decisions are documented with weighted evaluation matrices per
 | [ADR-024](adr/024-security-architecture.md) | Security Architecture (Defense in Depth) | Proposed | Security |
 | [ADR-025](adr/025-disaster-recovery-ha.md) | Disaster Recovery & HA (Zone Redundancy) | Proposed | Infrastructure |
 | [ADR-026](adr/026-driver-matching-algorithm.md) | Driver Matching Algorithm | Proposed | Backend |
+| [ADR-027](adr/027-driver-scheduling-algorithm.md) | Driver Scheduling Algorithm | Proposed | Backend |
 
 ### Repository Documentation
 
