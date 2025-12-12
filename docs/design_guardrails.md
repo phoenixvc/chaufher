@@ -2,7 +2,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Status** | Awaiting Approval |
+| **Status** | Approved |
 | **Owner** | Jurie |
 | **Reviewer** | Eben |
 | **Version** | 1.0 |
