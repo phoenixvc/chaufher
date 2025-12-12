@@ -424,6 +424,7 @@ public class AzureBlobStorageService : IStorageService
 - [ADR-008: Cloud Provider (Azure)](008-cloud-provider-azure.md)
 - [ADR-007: Authentication (Azure AD B2C)](007-authentication-azure-ad-b2c.md)
 - [ADR-010: Infrastructure as Code (Bicep)](010-infrastructure-bicep.md)
+- [ADR-024: Security Architecture](024-security-architecture.md)
 
 ---
 
