@@ -22,6 +22,9 @@ The unified entry point for development, operations, and governance across the C
 - [Design Philosophy](#design-philosophy)
 - [Cross-Repo Coordination](#cross-repo-coordination)
 - [System Interfaces](#system-interfaces)
+- [Data Model](docs/data-model.md)
+- [API Reference](docs/api-reference.md)
+- [C4 Diagrams](docs/c4-diagrams.md)
 
 ### Operations
 - [Deployment](#deployment)
@@ -32,6 +35,7 @@ The unified entry point for development, operations, and governance across the C
 - [Quick Start](#quick-start)
 - [Development Guidelines](#development-guidelines)
 - [Contributing](#contributing)
+- [Onboarding Guide](docs/onboarding-guide.md)
 
 ### Reference
 - [Documentation Index](#documentation-index)
@@ -610,7 +614,13 @@ For questions, issues, or support:
 
 - [Architecture Overview](docs/architecture.md) — High-level system architecture, data flows, component diagrams
 - [C4 Diagrams](docs/c4-diagrams.md) — Context, Container, Component, and Code level architecture diagrams
+- [Data Model](docs/data-model.md) — Entity Relationship Diagram, database schema, field definitions
+- [API Reference](docs/api-reference.md) — REST API endpoints, request/response examples, WebSocket events
 - [CODER Evaluations](docs/coder-evaluations.md) — Cost, Operational, Developer, Extensibility, Risk assessments for all ADRs
+
+### Developer Resources
+
+- [Onboarding Guide](docs/onboarding-guide.md) — Day-by-day setup instructions, environment configuration, first contribution guide
 
 ### Architecture Decision Records (ADRs)
 
@@ -663,11 +673,9 @@ Technical documentation for each repository in the ChaufHER platform:
 > **Note**: The following documents are planned for future development phases:
 
 **Quick Links** (Planned)
-- Onboarding Checklist
 - Security Policy
 - CI/CD Pipeline Reference
 - Contribution Guidelines
-- Architecture Diagrams
 
 **Policies & Standards** (Planned)
 - Secrets Management
