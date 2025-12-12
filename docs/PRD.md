@@ -1,4 +1,4 @@
-# ChaufHER – Scheduled Ride-Hail Platform – Product Requirements Document
+# ChaufHER – Scheduled Ride-Hail Platform (PWA) – Product Requirements Document
 
 ## Executive Summary
 
@@ -46,7 +46,6 @@ Full user personas are available in the [user_personas.md](user_personas.md) doc
 | Priority | User Story |
 |----------|------------|
 | **MVP** | As a Rider, I want to schedule a ride in advance, so that I have reliable transportation when I need it. |
-| **Future** | As a Rider, I want to schedule multiple and recurring rides (e.g., school runs, regular shifts), so that I can reduce daily planning and last-minute stress. |
 | **MVP** | As a Rider, I want to see driver profiles and ratings, so that I can feel confident in my travel arrangements and in who is driving my child. |
 | **MVP** | As a Rider, I want to track my ride's status in real time and receive notifications when the trip starts and ends, so that I can prepare effectively and know my child arrived safely. |
 | **MVP** | As a Rider, I want to pay securely within the app with saved cards and clear fare breakdowns, so that my payment process is hassle-free and trustworthy. |
@@ -81,7 +80,7 @@ Full user personas are available in the [user_personas.md](user_personas.md) doc
 
 | Priority | User Story |
 |----------|------------|
-| **Future** | As a Rider, I want to define recurring ride templates (e.g., every weekday at 07:00 from home to school), so that I can set up my routine once and only adjust when things change. |
+| **Future** | As a Rider, I want to schedule multiple and recurring rides (e.g., school runs, regular shifts) and define recurring ride templates (e.g., every weekday at 07:00 from home to school), so that I can reduce daily planning and last-minute stress by setting up my routine once and only adjusting when things change. |
 | **Future** | As a Rider, I want my employer or school to link my profile to an organisation account, so that some rides can be billed centrally while I still see all my own history and safety information. |
 
 #### Driver – Advanced (Thandi, Zanele)

@@ -578,6 +578,7 @@ For questions, issues, or support:
 ### Product & Design
 
 - [Product Requirements Document (PRD)](docs/PRD.md) — Vision, goals, user stories, functional requirements
+- [User Personas](docs/user_personas.md) — Detailed profiles of riders, drivers, and administrators
 - [Design Guardrails](docs/DESIGN_GUARDRAILS.md) — Non-negotiable UX principles
 
 ### Architecture Decision Records (ADRs)
