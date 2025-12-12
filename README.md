@@ -610,6 +610,7 @@ For questions, issues, or support:
 
 - [Architecture Overview](docs/architecture.md) — High-level system architecture, data flows, component diagrams
 - [C4 Diagrams](docs/c4-diagrams.md) — Context, Container, Component, and Code level architecture diagrams
+- [CODER Evaluations](docs/coder-evaluations.md) — Cost, Operational, Developer, Extensibility, Risk assessments for all ADRs
 
 ### Architecture Decision Records (ADRs)
 
