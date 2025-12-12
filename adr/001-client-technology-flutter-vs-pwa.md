@@ -1,6 +1,6 @@
 # ADR-001: Client Technology Selection – Flutter vs PWA vs Alternatives
 
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2025-01-15
 **Decision Makers:** Engineering, Product
 **Technical Story:** ChaufHER mobile/web client technology selection

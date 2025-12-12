@@ -608,7 +608,33 @@ For questions, issues, or support:
 
 ### Architecture Decision Records (ADRs)
 
-- [ADR-001: Client Technology (Flutter vs PWA)](adr/001-client-technology-flutter-vs-pwa.md) — Weighted evaluation of client technology options
+All architectural decisions are documented with weighted evaluation matrices per [ADR-000](adr/000-adr-specification.md).
+
+| ADR | Title | Status | Category |
+|-----|-------|--------|----------|
+| [ADR-000](adr/000-adr-specification.md) | ADR Specification | Accepted | Process |
+| [ADR-001](adr/001-client-technology-flutter-vs-pwa.md) | Client Technology (PWA vs Flutter) | Accepted | Frontend |
+| [ADR-002](adr/002-database-postgresql.md) | Database Technology (PostgreSQL) | Accepted | Data |
+| [ADR-003](adr/003-realtime-signalr.md) | Real-Time Communication (SignalR) | Accepted | Backend |
+| [ADR-004](adr/004-caching-redis.md) | Caching Strategy (Redis) | Accepted | Backend |
+| [ADR-005](adr/005-documentation-notion.md) | Documentation Platform (Notion) | Accepted | Process |
+| [ADR-006](adr/006-team-communication.md) | Team Communication (Slack) | Accepted | Process |
+| [ADR-007](adr/007-authentication-azure-ad-b2c.md) | Authentication (Azure AD B2C) | Accepted | Security |
+| [ADR-008](adr/008-cloud-provider-azure.md) | Cloud Provider (Azure) | Accepted | Infrastructure |
+| [ADR-009](adr/009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Accepted | Backend |
+| [ADR-010](adr/010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Accepted | Infrastructure |
+| [ADR-011](adr/011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Accepted | DevOps |
+
+### Repository Documentation
+
+Technical documentation for each repository in the ChaufHER platform:
+
+| Repository | Documentation | Description |
+|------------|---------------|-------------|
+| **chaufher-app** | [docs/app/README.md](docs/app/README.md) | PWA technical design, architecture, development guide |
+| **chaufher-api** | [docs/api/README.md](docs/api/README.md) | .NET 9 backend, API endpoints, authentication |
+| **chaufher-web** | [docs/web/README.md](docs/web/README.md) | React admin portal, design variants, operations |
+| **chaufher-infra** | [docs/infra/README.md](docs/infra/README.md) | Azure infrastructure, Bicep modules, runbooks |
 
 ### Quick Links
 
