@@ -1,6 +1,6 @@
 # ADR-019: File & Document Storage – Azure Blob Storage
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

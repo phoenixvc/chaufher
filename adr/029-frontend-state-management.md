@@ -1,6 +1,6 @@
 # ADR-029: Frontend State Management – Zustand
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

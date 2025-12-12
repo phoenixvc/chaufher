@@ -1,6 +1,6 @@
 # ADR-028: Container Runtime – Azure Container Apps
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

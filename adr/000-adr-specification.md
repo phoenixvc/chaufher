@@ -1,6 +1,6 @@
 # ADR-000: Architecture Decision Record Specification
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
@@ -26,7 +26,7 @@ Every ADR must include the following sections:
 ```markdown
 # ADR-{NNN}: {Title}
 
-**Status:** {Proposed | Accepted | Deprecated | Superseded by ADR-XXX}
+**Status:** {Proposed | Proposed | Deprecated | Superseded by ADR-XXX}
 **Date:** {YYYY-MM-DD}
 **Decision Makers:** {Roles/Names}
 **Technical Story:** {Brief description or ticket reference}
@@ -189,7 +189,7 @@ Do NOT write an ADR for:
 ```markdown
 # ADR-{NNN}: {Descriptive Title}
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** {YYYY-MM-DD}
 **Decision Makers:** {List roles/names}
 **Technical Story:** {Brief description}
@@ -311,37 +311,37 @@ All ADRs are stored in:
 
 | ADR | Title | Status | Date |
 |-----|-------|--------|------|
-| [ADR-000](000-adr-specification.md) | ADR Specification | Accepted | 2025-12-12 |
-| [ADR-001](001-client-technology-flutter-vs-pwa.md) | Client Technology (PWA vs Flutter) | Accepted | 2025-12-12 |
-| [ADR-002](002-database-postgresql.md) | Database Technology (PostgreSQL) | Accepted | 2025-12-12 |
-| [ADR-003](003-realtime-signalr.md) | Real-Time Communication (SignalR) | Accepted | 2025-12-12 |
-| [ADR-004](004-caching-redis.md) | Caching Strategy (Redis) | Accepted | 2025-12-12 |
-| [ADR-005](005-documentation-notion.md) | Documentation Platform (Notion) | Accepted | 2025-12-12 |
-| [ADR-006](006-team-communication.md) | Team Communication Platform | Accepted | 2025-12-12 |
-| [ADR-007](007-authentication-azure-ad-b2c.md) | Authentication (Azure AD B2C) | Accepted | 2025-12-12 |
-| [ADR-008](008-cloud-provider-azure.md) | Cloud Provider (Azure) | Accepted | 2025-12-12 |
-| [ADR-009](009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Accepted | 2025-12-12 |
-| [ADR-010](010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Accepted | 2025-12-12 |
-| [ADR-011](011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Accepted | 2025-12-12 |
-| [ADR-012](012-project-management.md) | Project Management (Linear) | Accepted | 2025-12-12 |
-| [ADR-013](013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Accepted | 2025-12-12 |
-| [ADR-014](014-payment-gateway.md) | Payment Gateway (PayFast) | Accepted | 2025-12-12 |
-| [ADR-015](015-sms-notifications.md) | SMS & Notifications (Africa's Talking) | Accepted | 2025-12-12 |
-| [ADR-016](016-maps-geolocation.md) | Maps & Geolocation (Google Maps) | Accepted | 2025-12-12 |
-| [ADR-017](017-background-jobs.md) | Background Jobs (Hangfire) | Accepted | 2025-12-12 |
-| [ADR-018](018-email-provider.md) | Email Provider (SendGrid) | Accepted | 2025-12-12 |
-| [ADR-019](019-file-storage.md) | File Storage (Azure Blob) | Accepted | 2025-12-12 |
-| [ADR-020](020-error-tracking.md) | Error Tracking (Sentry) | Accepted | 2025-12-12 |
-| [ADR-021](021-feature-flags.md) | Feature Flags (Azure App Configuration) | Accepted | 2025-12-12 |
-| [ADR-022](022-analytics-bi.md) | Analytics & BI (Power BI) | Accepted | 2025-12-12 |
-| [ADR-023](023-networking-api-gateway.md) | Networking & API Gateway (Azure Front Door) | Accepted | 2025-12-12 |
-| [ADR-024](024-security-architecture.md) | Security Architecture (Defense in Depth) | Accepted | 2025-12-12 |
-| [ADR-025](025-disaster-recovery-ha.md) | Disaster Recovery & HA (Zone Redundancy) | Accepted | 2025-12-12 |
-| [ADR-026](026-driver-matching-algorithm.md) | Driver Matching Algorithm (Multi-Factor Scoring) | Accepted | 2025-12-12 |
-| [ADR-027](027-driver-scheduling-algorithm.md) | Driver Scheduling Algorithm (Hybrid Priority Queue) | Accepted | 2025-12-12 |
-| [ADR-028](028-container-runtime.md) | Container Runtime (Azure Container Apps) | Accepted | 2025-12-12 |
-| [ADR-029](029-frontend-state-management.md) | Frontend State Management (Zustand) | Accepted | 2025-12-12 |
-| [ADR-030](030-api-versioning.md) | API Versioning Strategy (URL Path) | Accepted | 2025-12-12 |
+| [ADR-000](000-adr-specification.md) | ADR Specification | Proposed | 2025-12-12 |
+| [ADR-001](001-client-technology-flutter-vs-pwa.md) | Client Technology (PWA vs Flutter) | Proposed | 2025-12-12 |
+| [ADR-002](002-database-postgresql.md) | Database Technology (PostgreSQL) | Proposed | 2025-12-12 |
+| [ADR-003](003-realtime-signalr.md) | Real-Time Communication (SignalR) | Proposed | 2025-12-12 |
+| [ADR-004](004-caching-redis.md) | Caching Strategy (Redis) | Proposed | 2025-12-12 |
+| [ADR-005](005-documentation-notion.md) | Documentation Platform (Notion) | Proposed | 2025-12-12 |
+| [ADR-006](006-team-communication.md) | Team Communication Platform | Proposed | 2025-12-12 |
+| [ADR-007](007-authentication-azure-ad-b2c.md) | Authentication (Azure AD B2C) | Proposed | 2025-12-12 |
+| [ADR-008](008-cloud-provider-azure.md) | Cloud Provider (Azure) | Proposed | 2025-12-12 |
+| [ADR-009](009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Proposed | 2025-12-12 |
+| [ADR-010](010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Proposed | 2025-12-12 |
+| [ADR-011](011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Proposed | 2025-12-12 |
+| [ADR-012](012-project-management.md) | Project Management (Linear) | Proposed | 2025-12-12 |
+| [ADR-013](013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Proposed | 2025-12-12 |
+| [ADR-014](014-payment-gateway.md) | Payment Gateway (PayFast) | Proposed | 2025-12-12 |
+| [ADR-015](015-sms-notifications.md) | SMS & Notifications (Africa's Talking) | Proposed | 2025-12-12 |
+| [ADR-016](016-maps-geolocation.md) | Maps & Geolocation (Google Maps) | Proposed | 2025-12-12 |
+| [ADR-017](017-background-jobs.md) | Background Jobs (Hangfire) | Proposed | 2025-12-12 |
+| [ADR-018](018-email-provider.md) | Email Provider (SendGrid) | Proposed | 2025-12-12 |
+| [ADR-019](019-file-storage.md) | File Storage (Azure Blob) | Proposed | 2025-12-12 |
+| [ADR-020](020-error-tracking.md) | Error Tracking (Sentry) | Proposed | 2025-12-12 |
+| [ADR-021](021-feature-flags.md) | Feature Flags (Azure App Configuration) | Proposed | 2025-12-12 |
+| [ADR-022](022-analytics-bi.md) | Analytics & BI (Power BI) | Proposed | 2025-12-12 |
+| [ADR-023](023-networking-api-gateway.md) | Networking & API Gateway (Azure Front Door) | Proposed | 2025-12-12 |
+| [ADR-024](024-security-architecture.md) | Security Architecture (Defense in Depth) | Proposed | 2025-12-12 |
+| [ADR-025](025-disaster-recovery-ha.md) | Disaster Recovery & HA (Zone Redundancy) | Proposed | 2025-12-12 |
+| [ADR-026](026-driver-matching-algorithm.md) | Driver Matching Algorithm (Multi-Factor Scoring) | Proposed | 2025-12-12 |
+| [ADR-027](027-driver-scheduling-algorithm.md) | Driver Scheduling Algorithm (Hybrid Priority Queue) | Proposed | 2025-12-12 |
+| [ADR-028](028-container-runtime.md) | Container Runtime (Azure Container Apps) | Proposed | 2025-12-12 |
+| [ADR-029](029-frontend-state-management.md) | Frontend State Management (Zustand) | Proposed | 2025-12-12 |
+| [ADR-030](030-api-versioning.md) | API Versioning Strategy (URL Path) | Proposed | 2025-12-12 |
 
 ---
 

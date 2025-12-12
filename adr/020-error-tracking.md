@@ -1,6 +1,6 @@
 # ADR-020: Error Tracking – Sentry vs Application Insights
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

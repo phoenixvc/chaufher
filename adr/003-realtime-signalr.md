@@ -1,6 +1,6 @@
 # ADR-003: Real-Time Communication – SignalR
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

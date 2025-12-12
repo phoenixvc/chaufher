@@ -1,6 +1,6 @@
 # ADR-023: Networking & API Gateway – Azure Front Door
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
