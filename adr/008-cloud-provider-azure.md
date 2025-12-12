@@ -1,7 +1,9 @@
 # ADR-008: Cloud Provider – Microsoft Azure
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Leadership
 **Technical Story:** Cloud platform selection for ChaufHER infrastructure
 

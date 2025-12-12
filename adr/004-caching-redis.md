@@ -1,7 +1,9 @@
 # ADR-004: Caching Strategy – Redis
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Backend Team
 **Technical Story:** Caching layer selection for performance and session management
 

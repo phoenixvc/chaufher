@@ -1,7 +1,9 @@
 # ADR-010: Infrastructure as Code – Bicep
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, DevOps
 **Technical Story:** Infrastructure as Code tooling selection for Azure resources
 

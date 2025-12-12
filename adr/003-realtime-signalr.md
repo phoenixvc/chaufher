@@ -1,7 +1,9 @@
 # ADR-003: Real-Time Communication – SignalR
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Backend Team
 **Technical Story:** Real-time communication for ride status updates and notifications
 

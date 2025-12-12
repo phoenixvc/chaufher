@@ -1,7 +1,9 @@
 # ADR-007: Authentication Provider – Azure AD B2C
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Security
 **Technical Story:** User authentication and identity management for ChaufHER platform
 

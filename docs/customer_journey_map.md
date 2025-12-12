@@ -323,4 +323,4 @@ Journey stages apply to all key actors (rider, driver, admin, guardian):
 
 - [Product Requirements Document (PRD)](PRD.md)
 - [User Personas](user_personas.md)
-- [Design Guardrails](DESIGN_GUARDRAILS.md)
+- [Design Guardrails](design_guardrails.md)

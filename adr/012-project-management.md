@@ -1,7 +1,9 @@
 # ADR-012: Project Management & Dashboard – Linear vs Alternatives
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Product, Leadership
 **Technical Story:** Project management and issue tracking platform selection
 

@@ -1,7 +1,9 @@
 # ADR-013: Monitoring & Observability – Azure Monitor + Application Insights
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, DevOps, Operations
 **Technical Story:** Monitoring, logging, and observability platform selection
 

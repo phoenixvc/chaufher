@@ -144,7 +144,7 @@ ChaufHER is a women-only ridesharing platform engineered to address critical saf
 - **Needs**: Real-time dashboards, incident management tools, communication channels
 - **Tools**: Admin portal (chaufher-web), incident tracking, user management
 
-> **Full Personas**: See [User Personas](../user_personas.md) and [Customer Journey Map](../CUSTOMER_JOURNEY_MAP.md)
+> **Full Personas**: See [User Personas](../user_personas.md) and [Customer Journey Map](../customer_journey_map.md)
 
 ---
 
@@ -924,5 +924,5 @@ Copyright (c) 2025 ChaufHER. All rights reserved.
 - [ADR-001: Client Technology Selection](../../adr/001-client-technology-flutter-vs-pwa.md)
 - [Product Requirements Document](../PRD.md)
 - [User Personas](../user_personas.md)
-- [Design Guardrails](../DESIGN_GUARDRAILS.md)
-- [Customer Journey Map](../CUSTOMER_JOURNEY_MAP.md)
+- [Design Guardrails](../design_guardrails.md)
+- [Customer Journey Map](../customer_journey_map.md)

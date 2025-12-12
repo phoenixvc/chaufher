@@ -1,7 +1,9 @@
 # ADR-011: CI/CD Platform – GitHub Actions
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, DevOps
 **Technical Story:** Continuous Integration and Deployment platform selection
 

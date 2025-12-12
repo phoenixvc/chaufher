@@ -65,7 +65,7 @@ ChaufHER serves six core personas across riders, drivers, and administrators:
 | **Zanele** | Young Professional | Digital-first, transparent service |
 | **Lerato** | Family Advocate | Multi-household coordination |
 
-The **[Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md)** details the full experience across five stages:
+The **[Customer Journey Map](docs/customer_journey_map.md)** details the full experience across five stages:
 
 1. **Awareness** — Discovery via referrals, social media, school/corporate channels
 2. **Consideration** — Evaluating safety protocols, driver vetting, testimonials
@@ -73,11 +73,11 @@ The **[Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md)** details the full ex
 4. **Retention** — Regular bookings, recurring schedules, live tracking
 5. **Advocacy** — Referrals, community participation, feedback
 
-> **Read more**: [User Personas](docs/user_personas.md) | [Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md)
+> **Read more**: [User Personas](docs/user_personas.md) | [Customer Journey Map](docs/customer_journey_map.md)
 
 ## Design Guardrails
 
-The **[Design Guardrails](docs/DESIGN_GUARDRAILS.md)** define non-negotiable UX principles:
+The **[Design Guardrails](docs/design_guardrails.md)** define non-negotiable UX principles:
 
 | Guardrail | Principle |
 |-----------|-----------|
@@ -87,7 +87,7 @@ The **[Design Guardrails](docs/DESIGN_GUARDRAILS.md)** define non-negotiable UX 
 | **Human Fallback** | Clear paths to human help in all critical states |
 | **Repetition-Ready** | Flows optimized for recurring patterns (school runs, shifts) |
 
-> **Read the full guardrails**: [docs/DESIGN_GUARDRAILS.md](docs/DESIGN_GUARDRAILS.md)
+> **Read the full guardrails**: [docs/design_guardrails.md](docs/design_guardrails.md)
 
 ---
 
@@ -603,8 +603,8 @@ For questions, issues, or support:
 
 - [Product Requirements Document (PRD)](docs/PRD.md) — Vision, goals, user stories, functional requirements
 - [User Personas](docs/user_personas.md) — Detailed profiles of riders, drivers, and administrators
-- [Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md) — End-to-end experience across all touchpoints
-- [Design Guardrails](docs/DESIGN_GUARDRAILS.md) — Non-negotiable UX principles
+- [Customer Journey Map](docs/customer_journey_map.md) — End-to-end experience across all touchpoints
+- [Design Guardrails](docs/design_guardrails.md) — Non-negotiable UX principles
 
 ### Architecture Decision Records (ADRs)
 

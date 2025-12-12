@@ -49,7 +49,7 @@ These objectives are not part of the MVP scope.
 
 ## User Stories
 
-Full user personas are available in the [user_personas.md](user_personas.md) document. For the complete customer journey across all touchpoints, see the [Customer Journey Map](CUSTOMER_JOURNEY_MAP.md).
+Full user personas are available in the [user_personas.md](user_personas.md) document. For the complete customer journey across all touchpoints, see the [Customer Journey Map](customer_journey_map.md).
 
 ### Rider (Primary: women booking for themselves or minors – e.g., Sarah, Nomsa, Aisha)
 
@@ -407,6 +407,6 @@ Ongoing training and documentation for admin as hand-off for scaling reduces tec
 ## Supporting Documents and References
 
 1. For more details on user personas, please refer to: [user_personas.md](user_personas.md)
-2. For customer journey mapping and touchpoints, please refer to: [CUSTOMER_JOURNEY_MAP.md](CUSTOMER_JOURNEY_MAP.md)
-3. For design principles and constraints, please refer to: [DESIGN_GUARDRAILS.md](DESIGN_GUARDRAILS.md)
+2. For customer journey mapping and touchpoints, please refer to: [customer_journey_map.md](customer_journey_map.md)
+3. For design principles and constraints, please refer to: [design_guardrails.md](design_guardrails.md)
 4. For architecture decisions, please refer to: [ADR Index](../adr/)

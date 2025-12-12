@@ -1,7 +1,9 @@
 # ADR-000: Architecture Decision Record Specification
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering Leadership
 **Technical Story:** Establishing ADR standards for ChaufHER
 
@@ -327,7 +329,7 @@ All ADRs are stored in:
 ## Related Documents
 
 - [Product Requirements Document](../docs/PRD.md)
-- [Design Guardrails](../docs/DESIGN_GUARDRAILS.md)
+- [Design Guardrails](../docs/design_guardrails.md)
 
 ---
 

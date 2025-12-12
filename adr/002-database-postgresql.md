@@ -1,7 +1,9 @@
 # ADR-002: Database Technology Selection – PostgreSQL
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, DevOps
 **Technical Story:** Primary database selection for ChaufHER backend services
 

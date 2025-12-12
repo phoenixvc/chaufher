@@ -1,7 +1,9 @@
 # ADR-006: Team Communication Platform – Slack vs Microsoft Teams
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Operations, Leadership
 **Technical Story:** Team communication and collaboration platform selection
 

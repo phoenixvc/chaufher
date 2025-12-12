@@ -1,7 +1,9 @@
 # ADR-009: Backend Framework – .NET 9
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering
 **Technical Story:** Backend framework selection for ChaufHER API services
 

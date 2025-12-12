@@ -328,7 +328,7 @@ docker push chaufheracr.azurecr.io/chaufher-api:latest
 
 - [ADR-001: Client Technology Selection](../../adr/001-client-technology-flutter-vs-pwa.md)
 - [Product Requirements Document](../PRD.md)
-- [Design Guardrails](../DESIGN_GUARDRAILS.md)
+- [Design Guardrails](../design_guardrails.md)
 - [PWA App Technical Design](../app/README.md)
 
 ---

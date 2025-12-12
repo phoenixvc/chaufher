@@ -1,7 +1,9 @@
 # ADR-005: Documentation Platform – Notion
 
 **Status:** Accepted
-**Date:** 2025-01-15
+**Date:** 2025-12-12
+**Owner:** Jurie
+**Reviewer:** Eben
 **Decision Makers:** Engineering, Product, Operations
 **Technical Story:** Collaborative documentation and knowledge management platform selection
 
