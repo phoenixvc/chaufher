@@ -1,6 +1,6 @@
 # ADR-001: Client Technology Selection – Flutter vs PWA vs Alternatives
 
-**Status:** Proposed
+**Status:** Approved subject to changes
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben
@@ -16,7 +16,7 @@ ChaufHER requires a client application that serves three user types (Riders, Dri
 - Reliable ride scheduling and status notifications
 - Secure payment processing
 - Real-time updates (status changes, notifications)
-- Offline-resilient booking confirmation
+- Offline-resilient booking confirmation (Change this: Client PRD specifies offline mode as past trips (30 days) + emergency contacts.)
 - Cross-platform reach (iOS, Android, Web)
 - Rapid MVP delivery with a small team (1 engineer)
 
@@ -31,7 +31,7 @@ The PRD specifies a **Progressive Web App (PWA)** approach, but this decision wa
 3. **Development Cost** – Small team, limited budget
 4. **User Experience** – App-like feel, responsive, accessible
 5. **Offline Capability** – Booking confirmations must persist
-6. **Native Device Access** – Push notifications, geolocation, camera (for driver docs)
+6. **Native Device Access** – Push notifications, geolocation, camera (for driver docs) (note, camera is nice to have, not required)
 7. **Maintainability** – Single codebase, straightforward updates
 8. **Distribution** – Ease of deployment and updates
 9. **Performance** – Fast load times, smooth interactions
@@ -139,6 +139,8 @@ Web technologies wrapped in a native container with access to native APIs via pl
 ## Weighted Evaluation Matrix
 
 Each criterion is weighted based on ChaufHER's specific priorities (MVP speed, small team, cross-platform reach). Scores are 1-5 (5 = best).
+
+Change weights - time to market 10%, dev cost 25%
 
 | Criterion | Weight | PWA | Flutter | React Native | Native | Capacitor |
 |-----------|--------|-----|---------|--------------|--------|-----------|
