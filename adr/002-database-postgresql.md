@@ -1,6 +1,6 @@
 # ADR-002: Database Technology Selection – PostgreSQL
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

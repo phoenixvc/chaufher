@@ -1,6 +1,6 @@
 # ADR-007: Authentication Provider – Azure AD B2C
 
-**Status:** Accepted
+**Status:** Proposed
 **Date:** 2025-12-12
 **Owner:** Jurie
 **Reviewer:** Eben

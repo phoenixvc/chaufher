@@ -612,20 +612,20 @@ All architectural decisions are documented with weighted evaluation matrices per
 
 | ADR | Title | Status | Category |
 |-----|-------|--------|----------|
-| [ADR-000](adr/000-adr-specification.md) | ADR Specification | Accepted | Process |
-| [ADR-001](adr/001-client-technology-flutter-vs-pwa.md) | Client Technology (PWA vs Flutter) | Accepted | Frontend |
-| [ADR-002](adr/002-database-postgresql.md) | Database Technology (PostgreSQL) | Accepted | Data |
-| [ADR-003](adr/003-realtime-signalr.md) | Real-Time Communication (SignalR) | Accepted | Backend |
-| [ADR-004](adr/004-caching-redis.md) | Caching Strategy (Redis) | Accepted | Backend |
-| [ADR-005](adr/005-documentation-notion.md) | Documentation Platform (Notion) | Accepted | Process |
-| [ADR-006](adr/006-team-communication.md) | Team Communication (Slack) | Accepted | Process |
-| [ADR-007](adr/007-authentication-azure-ad-b2c.md) | Authentication (Azure AD B2C) | Accepted | Security |
-| [ADR-008](adr/008-cloud-provider-azure.md) | Cloud Provider (Azure) | Accepted | Infrastructure |
-| [ADR-009](adr/009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Accepted | Backend |
-| [ADR-010](adr/010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Accepted | Infrastructure |
-| [ADR-011](adr/011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Accepted | DevOps |
-| [ADR-012](adr/012-project-management.md) | Project Management (Linear) | Accepted | Process |
-| [ADR-013](adr/013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Accepted | Operations |
+| [ADR-000](adr/000-adr-specification.md) | ADR Specification | Proposed | Process |
+| [ADR-001](adr/001-client-technology-flutter-vs-pwa.md) | Client Technology (PWA vs Flutter) | Proposed | Frontend |
+| [ADR-002](adr/002-database-postgresql.md) | Database Technology (PostgreSQL) | Proposed | Data |
+| [ADR-003](adr/003-realtime-signalr.md) | Real-Time Communication (SignalR) | Proposed | Backend |
+| [ADR-004](adr/004-caching-redis.md) | Caching Strategy (Redis) | Proposed | Backend |
+| [ADR-005](adr/005-documentation-notion.md) | Documentation Platform (Notion) | Proposed | Process |
+| [ADR-006](adr/006-team-communication.md) | Team Communication (Slack) | Proposed | Process |
+| [ADR-007](adr/007-authentication-azure-ad-b2c.md) | Authentication (Azure AD B2C) | Proposed | Security |
+| [ADR-008](adr/008-cloud-provider-azure.md) | Cloud Provider (Azure) | Proposed | Infrastructure |
+| [ADR-009](adr/009-backend-framework-dotnet.md) | Backend Framework (.NET 9) | Proposed | Backend |
+| [ADR-010](adr/010-infrastructure-bicep.md) | Infrastructure as Code (Bicep) | Proposed | Infrastructure |
+| [ADR-011](adr/011-cicd-github-actions.md) | CI/CD Platform (GitHub Actions) | Proposed | DevOps |
+| [ADR-012](adr/012-project-management.md) | Project Management (Linear) | Proposed | Process |
+| [ADR-013](adr/013-monitoring-observability.md) | Monitoring & Observability (Azure Monitor) | Proposed | Operations |
 
 ### Repository Documentation
 
