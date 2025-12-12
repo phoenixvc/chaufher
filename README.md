@@ -8,6 +8,7 @@ The unified entry point for development, operations, and governance across the C
 
 ### Product Documentation
 - [Product Requirements (PRD)](#product-requirements)
+- [User Personas & Journey](#user-personas--customer-journey)
 - [Design Guardrails](#design-guardrails)
 
 ### Business & Product
@@ -50,6 +51,29 @@ The **[Product Requirements Document (PRD)](docs/PRD.md)** defines ChaufHER's vi
 - **Target Metrics**: 1,000+ rides in 3 months, 100+ active drivers, 4.8+ CSAT score
 
 > **Read the full PRD**: [docs/PRD.md](docs/PRD.md)
+
+## User Personas & Customer Journey
+
+ChaufHER serves six core personas across riders, drivers, and administrators:
+
+| Persona | Role | Primary Need |
+|---------|------|--------------|
+| **Sarah** | Corporate Guardian | Safe child transport logistics |
+| **Nomsa** | Community Driver | Flexible income with safety |
+| **Aisha** | Solo Commuter | Reliable late-shift transport |
+| **Thandi** | School Admin | Group transport efficiency |
+| **Zanele** | Young Professional | Digital-first, transparent service |
+| **Lerato** | Family Advocate | Multi-household coordination |
+
+The **[Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md)** details the full experience across five stages:
+
+1. **Awareness** — Discovery via referrals, social media, school/corporate channels
+2. **Consideration** — Evaluating safety protocols, driver vetting, testimonials
+3. **Decision** — Onboarding, registration, first ride setup
+4. **Retention** — Regular bookings, recurring schedules, live tracking
+5. **Advocacy** — Referrals, community participation, feedback
+
+> **Read more**: [User Personas](docs/user_personas.md) | [Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md)
 
 ## Design Guardrails
 
@@ -579,6 +603,7 @@ For questions, issues, or support:
 
 - [Product Requirements Document (PRD)](docs/PRD.md) — Vision, goals, user stories, functional requirements
 - [User Personas](docs/user_personas.md) — Detailed profiles of riders, drivers, and administrators
+- [Customer Journey Map](docs/CUSTOMER_JOURNEY_MAP.md) — End-to-end experience across all touchpoints
 - [Design Guardrails](docs/DESIGN_GUARDRAILS.md) — Non-negotiable UX principles
 
 ### Architecture Decision Records (ADRs)

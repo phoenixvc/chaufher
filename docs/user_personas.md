@@ -335,4 +335,5 @@ These personas directly influence ChaufHER's design decisions:
 ## Related Documents
 
 - [Product Requirements Document (PRD)](PRD.md)
+- [Customer Journey Map](CUSTOMER_JOURNEY_MAP.md)
 - [Design Guardrails](DESIGN_GUARDRAILS.md)
