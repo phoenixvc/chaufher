@@ -1,3 +1,7 @@
+NB:
+1. Not suitable as MVP "operational portal" spec (too many core PRD conflicts). Suitable only if re-scoped to client PRD.
+2. Client PRD MVP is much narrower: admin dashboard for manual oversight + bookings, WhatsApp driver broadcast (first accept), and explicitly no live GPS tracking / no native apps / no in-app chat for MVP.
+
 # ChaufHER Web — Operational Portal
 
 A browser-based operational platform empowering guardians, operators, administrators, and drivers to ensure safe, reliable, and transparent ride management.
