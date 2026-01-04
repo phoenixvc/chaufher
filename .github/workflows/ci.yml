@@ -1,0 +1,149 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  NODE_VERSION: '20'
+  DOTNET_VERSION: '8.0.x'
+  PNPM_VERSION: '8'
+
+jobs:
+  # Detect changes
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      pwa: ${{ steps.changes.outputs.pwa }}
+      admin: ${{ steps.changes.outputs.admin }}
+      api: ${{ steps.changes.outputs.api }}
+      ui: ${{ steps.changes.outputs.ui }}
+      infra: ${{ steps.changes.outputs.infra }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            pwa:
+              - 'apps/pwa/**'
+              - 'packages/ui/**'
+            admin:
+              - 'apps/admin/**'
+              - 'packages/ui/**'
+            api:
+              - 'apps/api/**'
+            ui:
+              - 'packages/ui/**'
+            infra:
+              - 'infra/**'
+
+  # Lint and type-check UI package
+  ui:
+    needs: changes
+    if: needs.changes.outputs.ui == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm --filter @chaufher/ui lint
+      - run: pnpm --filter @chaufher/ui type-check
+
+  # Build and test PWA
+  pwa:
+    needs: changes
+    if: needs.changes.outputs.pwa == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm --filter @chaufher/pwa lint
+      - run: pnpm --filter @chaufher/pwa type-check
+      - run: pnpm --filter @chaufher/pwa build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pwa-build
+          path: apps/pwa/.next
+
+  # Build and test Admin
+  admin:
+    needs: changes
+    if: needs.changes.outputs.admin == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm --filter @chaufher/admin lint
+      - run: pnpm --filter @chaufher/admin type-check
+      - run: pnpm --filter @chaufher/admin build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: admin-build
+          path: apps/admin/.next
+
+  # Build and test API
+  api:
+    needs: changes
+    if: needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Restore
+        run: dotnet restore apps/api/ChaufHER.sln
+      - name: Build
+        run: dotnet build apps/api/ChaufHER.sln --configuration Release --no-restore
+      - name: Test
+        run: dotnet test apps/api/ChaufHER.sln --configuration Release --no-build --verbosity normal
+      - name: Publish
+        run: dotnet publish apps/api/src/ChaufHER.API/ChaufHER.API.csproj --configuration Release --output ./publish
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-build
+          path: ./publish
+
+  # Validate Infrastructure
+  infra:
+    needs: changes
+    if: needs.changes.outputs.infra == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Validate Bicep
+        run: |
+          az bicep build --file infra/main.bicep
+      - name: What-If (dry run)
+        if: github.event_name == 'pull_request'
+        run: |
+          az deployment sub what-if \
+            --location southafricanorth \
+            --template-file infra/main.bicep \
+            --parameters environment=dev sqlAdminPassword=${{ secrets.SQL_ADMIN_PASSWORD }}
