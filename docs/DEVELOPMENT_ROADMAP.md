@@ -1,9 +1,10 @@
 # ChaufHER Development Roadmap
 
-**Version:** 1.0  
+**Version:** 2.0  
 **Last Updated:** 2026-01-04  
 **Owner:** Engineering Team  
-**Target MVP Launch:** 8-10 weeks from start
+**Target MVP Launch:** 8-10 weeks from start  
+**⚠️ IMPORTANT:** Updated with critical business rules from stakeholder feedback. See `docs/PRD_ALIGNMENT_ISSUES.md` for details.
 
 ---
 
@@ -21,6 +22,20 @@
 ---
 
 ## Overview
+
+### ⚠️ CRITICAL Business Rules (Updated 2026-01-04)
+
+Based on stakeholder feedback from Stacey Wright and Greg Wakelin, these requirements have changed:
+
+1. **🔴 90-Minute Minimum Booking** - Riders must book at least 90 minutes in advance
+2. **🔴 SMS-First Driver Matching** - Drivers don't keep app open due to data costs. SMS is PRIMARY notification channel.
+3. **🔴 Driver Payout Display Only** - Drivers see ONLY their payout, NOT rider fare
+4. **🔴 Payment on Driver Acceptance** - Payment authorized at booking, charged when driver accepts (10-minute window)
+5. **🔴 Driver Receipt via Platform** - Receipt from "[Driver Name] via ChaufHER" not "ChaufHER"
+6. **24-Hour Clock Format** - Default to 24hr to prevent AM/PM confusion
+7. **Fare Estimate Before Payment** - Users see fare before adding payment details
+
+See [PRD.md Critical Business Rules](PRD.md#critical-business-rules-updated-2026-01-04) for full details.
 
 ### MVP Scope (Must-Have)
 
@@ -239,14 +254,22 @@ public class Ride
     public Guid Id { get; set; }
     public Guid RiderId { get; set; }
     public Guid? DriverId { get; set; }
-    public DateTime ScheduledTime { get; set; }
+    public DateTime ScheduledTime { get; set; }  // 🔴 Must be >= 90 minutes from now
     public string PickupAddress { get; set; }
     public Location PickupLocation { get; set; }
     public string DropoffAddress { get; set; }
     public Location DropoffLocation { get; set; }
     public RideStatus Status { get; set; }
-    public decimal EstimatedFare { get; set; }
-    public decimal? ActualFare { get; set; }
+    
+    // 🔴 CRITICAL: Separate rider fare from driver payout
+    public decimal RiderFare { get; set; }          // What rider pays
+    public decimal DriverPayout { get; set; }       // What driver gets
+    public decimal PlatformCommission { get; set; }  // Difference
+    public decimal CommissionRate { get; set; }     // % rate
+    
+    public string PaymentMethodId { get; set; }     // Saved at booking
+    public DateTime? PaymentAuthorizedAt { get; set; }  // When authorized
+    public DateTime? PaymentChargedAt { get; set; }     // When charged (driver accepts)
     // ... additional fields
 }
 ```
@@ -259,9 +282,10 @@ public class Ride
 - `PUT /api/rides/{id}/cancel` - Cancel ride
 
 **Services to Implement:**
-1. `FareCalculationService` - Calculate estimated fares
-2. `DriverMatchingService` - Find available drivers (simple algorithm)
+1. `FareCalculationService` - Calculate rider fare AND driver payout separately
+2. `DriverMatchingService` - 🔴 SMS-based notification (NOT real-time app matching)
 3. `RideService` - CRUD operations for rides
+4. `BookingValidator` - Enforce 90-minute minimum booking window
 
 #### Frontend: Booking Interface
 
@@ -272,27 +296,33 @@ public class Ride
 
 **Components:**
 - `<LocationAutocomplete>` - Google Maps Places API
-- `<DateTimePicker>` - Schedule ride date/time
-- `<FareEstimate>` - Display fare breakdown
+- `<DateTimePicker>` - Schedule ride date/time (🔴 24-hour format, 90-min minimum)
+- `<FareEstimate>` - Display rider fare breakdown (BEFORE requiring payment)
+- `<PaymentMethodSelector>` - Choose/add payment method
 - `<RideCard>` - Show ride details
 - `<RideStatus>` - Current status display
 
-**User Flow:**
+**User Flow (REVISED per PRD v2.0):**
 1. Enter pickup address (autocomplete)
 2. Enter dropoff address (autocomplete)
-3. Select date and time (future only)
-4. View fare estimate
-5. Confirm booking
-6. View confirmation screen
+3. Select date and time (🔴 minimum 90 minutes from now, 24-hour format)
+4. 🔴 View fare estimate BEFORE payment details
+5. Add/select payment method (authorized, NOT charged yet)
+6. Confirm booking with message: "You'll be charged when a driver accepts"
+7. System begins notifying drivers via SMS
+8. View "Finding driver..." status screen
 
 **Acceptance Criteria:**
 - [ ] Riders can enter pickup/dropoff locations
 - [ ] Google Maps autocomplete working
-- [ ] Date/time picker prevents past dates
-- [ ] Fare estimate displays correctly
-- [ ] Ride request creates in database
+- [ ] 🔴 Date/time picker enforces 90-minute minimum (validation on client + server)
+- [ ] 🔴 Time picker uses 24-hour format by default
+- [ ] 🔴 Fare estimate shown BEFORE payment method required
+- [ ] 🔴 Payment authorized (not charged) at booking
+- [ ] 🔴 Clear message: "You'll be charged when driver accepts"
+- [ ] Ride request creates in database with correct RiderFare and DriverPayout
 - [ ] Confirmation displayed with ride ID
-- [ ] Ride appears in ride history
+- [ ] Ride appears in ride history with status "Finding Driver"
 
 ### Sprint 1 Deliverables
 
@@ -329,7 +359,12 @@ public class Ride
 **Services:**
 - `DriverService` - Driver profile management
 - `AvailabilityService` - Manage driver schedules
-- `RideMatchingService` - Notify drivers of nearby rides
+- `RideMatchingService` - 🔴 **SMS-based** driver notification (NOT push-only)
+  - Query available drivers based on schedule
+  - Send SMS with driver payout amount (NOT rider fare)
+  - 10-minute response window
+  - Sequential notification (try up to 5 drivers)
+  - Fallback to admin alert after 30 minutes
 
 #### Frontend: Driver PWA Pages
 
@@ -346,22 +381,30 @@ public class Ride
 - `<ActiveRide>` - Current ride in progress
 - `<EarningsSummary>` - Weekly/monthly totals
 
-**Driver Flow:**
+**Driver Flow (REVISED per PRD v2.0):**
 1. Set availability (days/times)
-2. Receive ride notification
-3. Accept or decline
-4. Navigate to pickup (external maps)
-5. Mark ride as started
-6. Mark ride as completed
-7. View earnings
+2. 🔴 Receive SMS: "New ride request - R[DriverPayout] payout. Tap to view."
+3. Open app/link from SMS to view full details
+4. See pickup, dropoff, time, and 🔴 **DRIVER PAYOUT ONLY** (NOT rider fare)
+5. Accept within 10-minute window
+6. 🔴 Rider payment charged immediately upon acceptance
+7. Navigate to pickup (external maps)
+8. Mark ride as started
+9. Mark ride as completed
+10. View earnings (driver payout amounts)
 
 **Acceptance Criteria:**
 - [ ] Drivers can register with basic info
 - [ ] Drivers can set availability schedule
-- [ ] Drivers see available ride requests
+- [ ] 🔴 SMS sent to drivers with payout amount when ride matches their availability
+- [ ] 🔴 Driver sees ONLY their payout amount, NOT rider fare (in all views)
+- [ ] 🔴 10-minute countdown timer shown after notification
 - [ ] Drivers can accept/decline rides
+- [ ] 🔴 Payment charged to rider immediately when driver accepts
+- [ ] If driver doesn't respond in 10 mins, next driver notified
+- [ ] If no driver in 30 mins, admin alerted
 - [ ] Ride status updates correctly
-- [ ] Basic earnings tracking works
+- [ ] Basic earnings tracking works (shows driver payout only)
 
 ### Epic 2.2: Admin Dashboard
 
@@ -444,32 +487,49 @@ public class Ride
 
 #### Backend: Payment Service
 
-**Requirements (per PRD):**
-- Charge when driver accepts trip
-- 3DS required
-- CVV required each transaction
-- Manual refunds by admin
+**Requirements (per PRD v2.0):**
+- 🔴 **Authorize** payment at booking (hold funds)
+- 🔴 **Charge** payment when driver accepts trip (within 10-minute window)
+- 3DS required for charge (not authorization)
+- CVV required each transaction (no CVV-less recurring)
+- Manual refunds by admin only
+- If payment fails after driver acceptance: cancel ride, compensate driver, notify next driver
 
 **API Endpoints:**
 - `POST /api/payments/methods` - Add payment method
 - `GET /api/payments/methods` - List saved cards
 - `DELETE /api/payments/methods/{id}` - Remove card
-- `POST /api/payments/{rideId}/charge` - Process payment
+- `POST /api/payments/{rideId}/authorize` - 🔴 Authorize payment at booking (hold)
+- `POST /api/payments/{rideId}/charge` - 🔴 Charge payment when driver accepts
 - `POST /api/payments/{rideId}/refund` - Refund (admin only)
 - `GET /api/payments/history` - Payment history
+- `POST /api/payments/{rideId}/receipt` - 🔴 Generate driver receipt via platform
 
-**Implementation:**
+**Implementation (REVISED per PRD v2.0):**
 ```csharp
 public class PaymentService : IPaymentService
 {
+    // 🔴 Called at booking - authorize/hold funds
+    public async Task<PaymentResult> AuthorizeRidePaymentAsync(Guid rideId)
+    {
+        // 1. Get ride details (RiderFare amount)
+        // 2. Get rider's payment method
+        // 3. Authorize payment (hold funds)
+        // 4. Store authorization ID
+        // 5. Return success/failure
+    }
+    
+    // 🔴 Called when driver accepts - charge the rider
     public async Task<PaymentResult> ChargeRideAsync(Guid rideId)
     {
-        // 1. Get ride details
+        // 1. Get ride details + authorization ID
         // 2. Get rider's payment method
         // 3. Initiate 3DS flow
-        // 4. Process payment
-        // 5. Update ride status
-        // 6. Send receipt
+        // 4. Capture authorized payment (charge RiderFare)
+        // 5. Update ride status to "Paid"
+        // 6. Generate driver receipt via platform
+        // 7. Send receipt to rider
+        // 8. If fails: cancel ride, compensate driver, notify admin
     }
 }
 ```
@@ -484,25 +544,30 @@ public class PaymentService : IPaymentService
 **Components:**
 - `<PaymentMethodForm>` - Add card with validation
 - `<CardList>` - Display saved cards
-- `<SecurePayment>` - 3DS iframe
-- `<Receipt>` - Payment confirmation
+- `<SecurePayment>` - 3DS iframe (triggered when driver accepts)
+- `<Receipt>` - 🔴 Driver receipt via ChaufHER template
 
 **Acceptance Criteria:**
 - [ ] Riders can add payment methods
-- [ ] Payment triggered when driver accepts
+- [ ] 🔴 Payment authorized (not charged) at booking
+- [ ] 🔴 Payment charged when driver accepts (3DS flow)
+- [ ] 🔴 CVV required for every transaction
+- [ ] 🔴 If payment fails after driver accepts: ride cancelled, driver compensated, next driver notified
 - [ ] 3DS flow completes successfully
 - [ ] Ride marked as paid
-- [ ] Receipt sent to rider
-- [ ] Admin can issue refunds
+- [ ] 🔴 Receipt template: "Receipt from [Driver Name] via ChaufHER"
+- [ ] 🔴 Receipt shows driver payout amount (what driver earned)
+- [ ] Receipt sent to rider via email + in-app
+- [ ] Admin can issue manual refunds
 
 ### Epic 3.2: Notification System
 
 #### Backend: Notification Service
 
 **Channels:**
-- SMS (Africa's Talking)
-- Email (SendGrid)
-- Push (Firebase Cloud Messaging)
+- 🔴 **SMS (Africa's Talking)** - PRIMARY channel for driver notifications
+- Email (SendGrid) - Receipts and confirmations
+- Push (Firebase Cloud Messaging) - Secondary for riders/drivers
 
 **API Implementation:**
 ```csharp
@@ -515,13 +580,15 @@ public interface INotificationService
 ```
 
 **Notification Events:**
-- Ride confirmed
-- Driver assigned
-- Driver en route
-- Driver arrived
-- Trip started
-- Trip completed
-- Payment processed
+- Ride confirmed (rider: SMS + email + push)
+- 🔴 **New ride request** (driver: **SMS PRIMARY** + push secondary)
+- Driver assigned (rider: SMS + push)
+- Driver en route (rider: SMS + push)
+- Driver arrived (rider: SMS + push)
+- Trip started (rider: SMS + push)
+- Trip completed (rider: SMS + push)
+- Payment processed (rider: email with receipt)
+- Payment failed after acceptance (rider + admin: SMS + email urgent)
 
 **API Endpoints:**
 - `POST /api/notifications/test` - Test notification
@@ -541,12 +608,14 @@ public interface INotificationService
 - `<PushPrompt>` - Request permission
 
 **Acceptance Criteria:**
-- [ ] SMS sent for ride status updates
+- [ ] 🔴 SMS sent to drivers for new ride requests (PRIMARY channel)
+- [ ] SMS sent for ride status updates to riders
 - [ ] Email sent for receipts
 - [ ] Push notifications work on supported browsers
 - [ ] Users can manage notification preferences
 - [ ] Notifications display correctly in-app
 - [ ] All critical events trigger notifications
+- [ ] 🔴 SMS notification includes deep link to open app directly to ride details
 
 ### Sprint 3 Deliverables
 

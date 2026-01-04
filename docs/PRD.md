@@ -61,6 +61,57 @@ These objectives are not part of the MVP scope.
 
 ---
 
+## Critical Business Rules (Updated 2026-01-04)
+
+**Source:** Stakeholder feedback from Stacey Wright and Greg Wakelin. See `docs/PRD_ALIGNMENT_ISSUES.md` for full details.
+
+### Payment Rules
+
+1. **Payment Timing:** Payment method required at booking. Payment **authorized** (hold) at booking, but **charged when driver accepts ride**.
+2. **3DS Required:** 3D Secure authentication required for all transactions.
+3. **CVV Required:** CVV must be entered for every transaction (no CVV-less recurring payments).
+4. **Refunds:** Fully manual by admin only.
+5. **Failed Payment After Acceptance:** If payment fails after driver accepts, rider is notified immediately, ride is cancelled, driver is compensated for time, and next available driver is notified.
+
+### Booking Rules
+
+1. **Minimum Booking Window:** 🔴 **90 minutes** - Riders cannot book rides less than 90 minutes in advance.
+2. **Maximum Booking Window:** 30 days in advance.
+3. **No Past Dates:** System must prevent selection of past dates/times.
+4. **Pickup ≠ Dropoff:** Pickup and dropoff locations cannot be identical.
+5. **Time Format:** 24-hour clock format by default (users commonly confuse AM/PM).
+
+### Driver Matching Rules
+
+1. **Availability-Based Matching:** Match drivers based on their pre-set availability schedule, NOT real-time app status.
+2. **SMS-First Notification:** 🔴 **CRITICAL** - Drivers don't keep app open due to data costs. Send SMS as primary notification channel, push as secondary.
+3. **Response Window:** Drivers have **10 minutes** to respond to ride request.
+4. **Sequential Notification:** If driver doesn't respond, notify next available driver.
+5. **Maximum Attempts:** System tries up to **5 drivers** per ride request.
+6. **Fallback:** If no driver accepts within **30 minutes**, notify admin and rider.
+
+### Fare Display Rules
+
+1. **Rider View:** Rider sees total rider fare (what they pay).
+2. **Driver View:** 🔴 **CRITICAL** - Driver sees **ONLY their payout amount**, NOT the rider fare.
+3. **Admin View:** Admin sees rider fare + driver payout + platform commission.
+4. **Commission:** Platform commission configurable (percentage or fixed amount).
+5. **Estimate Before Payment:** Riders can view fare estimates BEFORE entering payment details.
+
+### Receipt Rules
+
+1. **Issued From Driver:** Receipt is legally from the driver (via ChaufHER), not from ChaufHER.
+2. **Template Wording:** "Receipt from [Driver Name] via ChaufHER" (NOT "Receipt from ChaufHER").
+3. **Amount Shown:** Receipt shows driver payout amount (what driver earned).
+4. **Delivery:** Rider receives copy via email + in-app.
+
+### Data & Privacy
+
+1. **Minimum Rider Age:** 16 years unaccompanied.
+2. **Driver App Usage:** Drivers may not have app permanently on due to data cost concerns - design for SMS-based workflows.
+
+---
+
 ## User Stories
 
 Full user personas are available in the [user_personas.md](user_personas.md) document. For the complete customer journey across all touchpoints, see the [Customer Journey Map](customer_journey_map.md).
