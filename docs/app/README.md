@@ -61,12 +61,15 @@ ChaufHER is a women-only ridesharing platform engineered to address critical saf
 
 ### Core Value Proposition
 
+Change: panic always visible to rider is phase 2+. Always visible to driver, phase 1. Riders recommended to subscribe the SAFER.
 - **Safety First**: Always-visible panic button, real-time status updates, instant incident escalation
 - **Women-Only Network**: Pre-verified female drivers and riders create a trusted community
 - **Privacy Protected**: Minimal data collection with secure, encrypted storage
 - **Always Reliable**: Offline support, fallback mechanisms, and robust error handling
 
 ### Key Capabilities
+
+NB: support chat, as below, is not a phase 1 requirement. It will be Whatsapp/email as per client PRD.
 
 | Feature | Rider Experience | Driver Experience |
 |---------|-----------------|-------------------|
@@ -165,6 +168,8 @@ ChaufHER is a women-only ridesharing platform engineered to address critical saf
 - Brand recognition and trust
 
 ### Key Performance Indicators
+
+Change/remove, reduce weekly active to 500+ / 5000+
 
 | Metric | Short-Term Target | Long-Term Goal | Measurement |
 |--------|-------------------|----------------|-------------|
@@ -403,7 +408,7 @@ src/
    ↓
 6. Confirms booking with saved payment method
    ↓
-7. API creates booking, matches driver
+7. API creates booking, matches driver [NB: PRD specifies WhatsApp broadcast + first accept, but I believe client would prefer app broadcast. If we can fit api match in budget let's give them the option)
    ↓
 8. Push notification confirms booking
    ↓
@@ -524,7 +529,8 @@ TRIGGERED → ACKNOWLEDGED → ESCALATED → RESOLVED
 - Endpoints: Users, trips, safety events, payments, notifications
 - Error Handling: Standardized error responses with correlation IDs
 
-**SignalR (Real-Time):**
+Note, Real-Time is nice to have, not MVP requirement
+**SignalR (Real-Time):** 
 - Hub: `/hubs/rideevents`
 - Events: `trip.updated`, `safety.event.update`, `driver.location.updated`
 - Connection: WebSocket with automatic reconnection
